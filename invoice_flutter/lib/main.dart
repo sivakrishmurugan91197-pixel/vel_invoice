@@ -15,13 +15,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        primaryColor: const Color(0xff162642),
+        scaffoldBackgroundColor: const Color(0xfff8f9fa),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xff162642),
           primary: const Color(0xff162642),
           secondary: const Color(0xffd4af37),
           surface: Colors.white,
-          scaffoldBackgroundColor: const Color(0xfff8f9fa),
         ),
         cardTheme: const CardTheme(
           color: Colors.white,

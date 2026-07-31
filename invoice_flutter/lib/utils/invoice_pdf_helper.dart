@@ -98,7 +98,7 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
           ),
           padding: const pw.EdgeInsets.all(12),
           child: pw.Column(
-            cross: pw.CrossAxisAlignment.start,
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
               // Header Row
               pw.Row(
@@ -106,7 +106,7 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
                 children: [
                   pw.Expanded(
                     child: pw.Column(
-                      cross: pw.CrossAxisAlignment.start,
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text(
                           companyName.toUpperCase(),
@@ -158,7 +158,7 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
                 children: [
                   pw.Expanded(
                     child: pw.Column(
-                      cross: pw.CrossAxisAlignment.start,
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text("INVOICE NO.", style: const pw.TextStyle(fontSize: 8, color: PdfColors.grey700)),
                         pw.Text(invoiceNo, style: pw.TextStyle(fontSize: 11, fontWeight: pw.FontWeight.bold)),
@@ -167,7 +167,7 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
                   ),
                   pw.Expanded(
                     child: pw.Column(
-                      cross: pw.CrossAxisAlignment.start,
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text("INVOICE DATE", style: const pw.TextStyle(fontSize: 8, color: PdfColors.grey700)),
                         pw.Text(invoiceDate, style: pw.TextStyle(fontSize: 11, fontWeight: pw.FontWeight.bold)),
@@ -176,7 +176,7 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
                   ),
                   pw.Expanded(
                     child: pw.Column(
-                      cross: pw.CrossAxisAlignment.start,
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text("MOTOR VEHICLE NO", style: const pw.TextStyle(fontSize: 8, color: PdfColors.grey700)),
                         pw.Text(motorVehicleNo, style: pw.TextStyle(fontSize: 11, fontWeight: pw.FontWeight.bold)),
@@ -190,11 +190,11 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
 
               // Billing & Shipping Row
               pw.Row(
-                cross: pw.CrossAxisAlignment.start,
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
                   pw.Expanded(
                     child: pw.Column(
-                      cross: pw.CrossAxisAlignment.start,
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text("BILL TO", style: pw.TextStyle(fontSize: 9, fontWeight: pw.FontWeight.bold, color: const PdfColor.fromInt(0xff162642))),
                         pw.SizedBox(height: 4),
@@ -207,7 +207,7 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
                   pw.SizedBox(width: 15),
                   pw.Expanded(
                     child: pw.Column(
-                      cross: pw.CrossAxisAlignment.start,
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text("SHIP TO", style: pw.TextStyle(fontSize: 9, fontWeight: pw.FontWeight.bold, color: const PdfColor.fromInt(0xff162642))),
                         pw.SizedBox(height: 4),
@@ -306,12 +306,12 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
 
               // Footer Area
               pw.Row(
-                cross: pw.CrossAxisAlignment.start,
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
                   // Footer Left: Total Words and Bank Details
                   pw.Expanded(
                     child: pw.Column(
-                      cross: pw.CrossAxisAlignment.start,
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
                       children: [
                         pw.Text("Total Amount (in words)", style: pw.TextStyle(fontSize: 7.5, color: PdfColors.grey700, fontWeight: pw.FontWeight.bold)),
                         pw.Text(wordsAmount, style: pw.TextStyle(fontSize: 9, fontWeight: pw.FontWeight.bold, color: const PdfColor.fromInt(0xff162642))),
@@ -352,7 +352,7 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
                         ),
                         pw.SizedBox(height: 15),
                         pw.Column(
-                          cross: pw.CrossAxisAlignment.end,
+                          crossAxisAlignment: pw.CrossAxisAlignment.end,
                           children: [
                             pw.Text("For ${companyName.toUpperCase()}", style: pw.TextStyle(fontSize: 9, fontWeight: pw.FontWeight.bold)),
                             pw.SizedBox(height: 35),
