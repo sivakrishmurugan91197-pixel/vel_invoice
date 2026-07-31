@@ -26,6 +26,11 @@ jobs:
           flutter-version: '3.19.6'
           channel: 'stable'
 
+      - name: Add Android Platform support
+        run: |
+          cd invoice_flutter
+          flutter create --platforms=android --org com.velmurugan .
+
       - name: Install Dependencies
         run: |
           cd invoice_flutter
