@@ -26,16 +26,24 @@ jobs:
           flutter-version: '3.19.6'
           channel: 'stable'
 
-      - name: Add Android Platform support & Fix Kotlin Stdlib conflicts
+      - name: Add Android Platform support, Change App Name & Fix Kotlin Stdlib conflicts
         run: |
           cd invoice_flutter
           flutter create --platforms=android --org com.velmurugan .
+          # Change App Name in AndroidManifest
+          sed -i 's/android:label="invoice_flutter"/android:label="Vel Invoice bill"/g' android/app/src/main/AndroidManifest.xml
+          # Fix duplicate Kotlin Stdlib classes conflict
           echo -e "\nconfigurations.all {\n    resolutionStrategy {\n        eachDependency { details ->\n            if (details.requested.group == 'org.jetbrains.kotlin') {\n                details.useVersion '1.8.10'\n            }\n        }\n    }\n}" >> android/app/build.gradle
 
       - name: Install Dependencies
         run: |
           cd invoice_flutter
           flutter pub get
+
+      - name: Generate App Launcher Icons
+        run: |
+          cd invoice_flutter
+          flutter pub run flutter_launcher_icons
 
       - name: Build Release APK
         run: |
