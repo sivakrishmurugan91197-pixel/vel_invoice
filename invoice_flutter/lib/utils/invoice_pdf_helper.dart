@@ -3,6 +3,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'number_to_words.dart';
 import 'package:intl/intl.dart';
+import 'package:printing/printing.dart';
 
 Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
   final pdf = pw.Document();
@@ -84,10 +85,17 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
 
   final String wordsAmount = convertNumberToWords(grandTotal).replaceAll(RegExp(r' Only$', caseSensitive: false), '');
 
+  final fontRegular = await PdfGoogleFonts.notoSansRegular();
+  final fontBold = await PdfGoogleFonts.notoSansBold();
+
   pdf.addPage(
     pw.Page(
       pageFormat: PdfPageFormat.a4,
       margin: const pw.EdgeInsets.all(24),
+      theme: pw.ThemeData.withFont(
+        base: fontRegular,
+        bold: fontBold,
+      ),
       build: (pw.Context context) {
         return pw.Container(
           decoration: pw.BoxDecoration(
@@ -287,12 +295,12 @@ Future<Uint8List> generateInvoicePdf(Map<String, dynamic> data) async {
                   pw.TableRow(
                     decoration: const pw.BoxDecoration(color: PdfColor.fromInt(0xfffdfbf7)),
                     children: [
+                      pw.Container(),
                       pw.Container(
                         padding: const pw.EdgeInsets.all(6),
                         child: pw.Text("SUBTOTAL", style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold)),
                         alignment: pw.Alignment.centerLeft,
                       ),
-                      pw.Container(),
                       pw.Container(),
                       pw.Container(padding: const pw.EdgeInsets.all(6), child: pw.Text(totalQty.toStringAsFixed(0), style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold), textAlign: pw.TextAlign.right)),
                       pw.Container(),
