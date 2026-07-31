@@ -1,4 +1,4 @@
-import 'package:flutter/material';
+import 'package:flutter/material.dart';
 import 'invoice_preview.dart';
 
 class InvoiceFormScreen extends StatefulWidget {
